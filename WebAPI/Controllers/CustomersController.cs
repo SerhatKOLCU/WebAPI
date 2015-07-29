@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DAL.Entities;
@@ -14,19 +10,19 @@ namespace WebAPI.Controllers
 {
     public class CustomersController : ApiController
     {
-        private dividataEntities1 db = new dividataEntities1();
+        private dividataEntities db = new dividataEntities();
 
         // GET: api/Customers
-        public IQueryable<Customer> GetCustomers()
+        public IQueryable<Customers> GetCustomers()
         {
             return db.Customers;
         }
 
         // GET: api/Customers/5
-        [ResponseType(typeof(Customer))]
+        [ResponseType(typeof(Customers))]
         public IHttpActionResult GetCustomer(string id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customers customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return NotFound();
@@ -37,7 +33,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Customers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCustomer(string id, Customer customer)
+        public IHttpActionResult PutCustomer(string id, Customers customer)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +67,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Customers
-        [ResponseType(typeof(Customer))]
-        public IHttpActionResult PostCustomer(Customer customer)
+        [ResponseType(typeof(Customers))]
+        public IHttpActionResult PostCustomer(Customers customer)
         {
             if (!ModelState.IsValid)
             {
@@ -101,10 +97,10 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/Customers/5
-        [ResponseType(typeof(Customer))]
+        [ResponseType(typeof(Customers))]
         public IHttpActionResult DeleteCustomer(string id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customers customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return NotFound();

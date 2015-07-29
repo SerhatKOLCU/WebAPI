@@ -12,15 +12,15 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Suppliers
     {
-        public Customer()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Suppliers()
         {
-            this.Orders = new HashSet<Order>();
-            this.CustomerDemographics = new HashSet<CustomerDemographic>();
+            this.Products = new HashSet<Products>();
         }
     
-        public string CustomerID { get; set; }
+        public int SupplierID { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }
@@ -31,8 +31,9 @@ namespace DAL.Entities
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        public string HomePage { get; set; }
     
-        public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

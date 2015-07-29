@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="52aef0940c6f4ca78f49bbf4d88bad34" Name="Diagram1">
-        <EntityTypeShape EntityType="dividataModel.Category" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Contact" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.CustomerDemographic" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Customer" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Employee" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Order_Detail" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Product" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+      <Diagram DiagramId="8879a15bddca40b0afc21fc4aec0f4d9" Name="Diagram1">
+        <EntityTypeShape EntityType="dividataModel.Categories" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Contacts" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.CustomerDemographics" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Customers" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Employees" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Order_Details" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Products" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dividataModel.Region" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Shipper" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Supplier" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dividataModel.Territory" Width="1.5" PointX="8" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Shippers" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Suppliers" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dividataModel.Territories" Width="1.5" PointX="8" PointY="9.875" IsExpanded="true" />
         <AssociationConnector Association="dividataModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="dividataModel.FK_Orders_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="dividataModel.FK_Employees_Employees" ManuallyRouted="false" />

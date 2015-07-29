@@ -12,16 +12,18 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerDemographic
+    public partial class CustomerDemographics
     {
-        public CustomerDemographic()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CustomerDemographics()
         {
-            this.Customers = new HashSet<Customer>();
+            this.Customers = new HashSet<Customers>();
         }
     
         public string CustomerTypeID { get; set; }
         public string CustomerDesc { get; set; }
     
-        public virtual ICollection<Customer> Customers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customers> Customers { get; set; }
     }
 }

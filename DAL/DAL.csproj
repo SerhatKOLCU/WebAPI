@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -48,82 +50,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Category.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Categories.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Contact.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Contacts.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Customer.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\CustomerDemographics.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\CustomerDemographic.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Customers.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Employee.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Employees.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EntityModel.Context.cs">
+    <Compile Include="Entities\NWDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel.Context.tt</DependentUpon>
+      <DependentUpon>NWDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EntityModel.cs">
+    <Compile Include="Entities\NWDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel.tt</DependentUpon>
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EntityModel.Designer.cs">
+    <Compile Include="Entities\NWDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <DependentUpon>NWDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Order.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Orders.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Order_Detail.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Order_Details.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Product.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Products.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Region.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Shipper.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Shippers.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Supplier.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Suppliers.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sysdiagram.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Territory.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
+    <Compile Include="Entities\Territories.cs">
+      <DependentUpon>NWDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\NWDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NWDataModel.edmx</DependentUpon>
+      <LastGenOutput>NWDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\NWDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NWDataModel.edmx</DependentUpon>
+      <LastGenOutput>NWDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Entities\EntityModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
-    <None Include="Entities\EntityModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModel.edmx</DependentUpon>
-      <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Entities\EntityModel.edmx.diagram">
-      <DependentUpon>EntityModel.edmx</DependentUpon>
-    </None>
-    <None Include="Entities\EntityModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModel.edmx</DependentUpon>
-      <LastGenOutput>EntityModel.cs</LastGenOutput>
+    <EntityDeploy Include="Entities\NWDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NWDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\NWDataModel.edmx.diagram">
+      <DependentUpon>NWDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

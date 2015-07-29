@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using DAL.Entities;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using DAL.Entities;
 
 namespace WebAPI.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private dividataEntities1 db = new dividataEntities1();
+        //private dividataEntities1 db = new dividataEntities1();
+        private dividataEntities db = new dividataEntities();
 
         // GET: api/Categories
-        public IQueryable<Category> GetCategories()
+        public IQueryable<DAL.Entities.Categories> GetCategories()
         {
             return db.Categories;
         }
 
         // GET: api/Categories/5
-        [ResponseType(typeof(Category))]
+        [ResponseType(typeof(DAL.Entities.Categories))]
         public IHttpActionResult GetCategory(int id)
         {
-            Category category = db.Categories.Find(id);
+            DAL.Entities.Categories category = db.Categories.Find(id);
             if (category == null)
             {
                 return NotFound();
@@ -37,7 +34,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Categories/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCategory(int id, Category category)
+        public IHttpActionResult PutCategory(int id, DAL.Entities.Categories category)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +68,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Categories
-        [ResponseType(typeof(Category))]
-        public IHttpActionResult PostCategory(Category category)
+        [ResponseType(typeof(DAL.Entities.Categories))]
+        public IHttpActionResult PostCategory(DAL.Entities.Categories category)
         {
             if (!ModelState.IsValid)
             {
@@ -86,10 +83,10 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/Categories/5
-        [ResponseType(typeof(Category))]
+        [ResponseType(typeof(DAL.Entities.Categories))]
         public IHttpActionResult DeleteCategory(int id)
         {
-            Category category = db.Categories.Find(id);
+            DAL.Entities.Categories category = db.Categories.Find(id);
             if (category == null)
             {
                 return NotFound();

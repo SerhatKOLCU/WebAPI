@@ -12,10 +12,16 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact
+    public partial class Customers
     {
-        public int ContactID { get; set; }
-        public string ContactType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customers()
+        {
+            this.Orders = new HashSet<Orders>();
+            this.CustomerDemographics = new HashSet<CustomerDemographics>();
+        }
+    
+        public string CustomerID { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }
@@ -25,10 +31,11 @@ namespace DAL.Entities
         public string PostalCode { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
-        public string Extension { get; set; }
         public string Fax { get; set; }
-        public string HomePage { get; set; }
-        public string PhotoPath { get; set; }
-        public byte[] Photo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orders> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
     }
 }

@@ -12,18 +12,20 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Region
+    public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Region()
+        public Categories()
         {
-            this.Territories = new HashSet<Territories>();
+            this.Products = new HashSet<Products>();
         }
     
-        public int RegionID { get; set; }
-        public string RegionDescription { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+        public string Description { get; set; }
+        public byte[] Picture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Territories> Territories { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

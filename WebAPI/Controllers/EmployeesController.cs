@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DAL.Entities;
@@ -14,19 +10,19 @@ namespace WebAPI.Controllers
 {
     public class EmployeesController : ApiController
     {
-        private dividataEntities1 db = new dividataEntities1();
+        private dividataEntities db = new dividataEntities();
 
         // GET: api/Employees
-        public IQueryable<Employee> GetEmployees()
+        public IQueryable<Employees> GetEmployees()
         {
             return db.Employees;
         }
 
         // GET: api/Employees/5
-        [ResponseType(typeof(Employee))]
+        [ResponseType(typeof(Employees))]
         public IHttpActionResult GetEmployee(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employees employee = db.Employees.Find(id);
             if (employee == null)
             {
                 return NotFound();
@@ -37,7 +33,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Employees/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutEmployee(int id, Employee employee)
+        public IHttpActionResult PutEmployee(int id, Employees employee)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +67,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Employees
-        [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostEmployee(Employee employee)
+        [ResponseType(typeof(Employees))]
+        public IHttpActionResult PostEmployee(Employees employee)
         {
             if (!ModelState.IsValid)
             {
@@ -86,10 +82,10 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/Employees/5
-        [ResponseType(typeof(Employee))]
+        [ResponseType(typeof(Employees))]
         public IHttpActionResult DeleteEmployee(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employees employee = db.Employees.Find(id);
             if (employee == null)
             {
                 return NotFound();

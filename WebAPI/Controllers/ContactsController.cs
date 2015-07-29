@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DAL.Entities;
@@ -14,19 +10,19 @@ namespace WebAPI.Controllers
 {
     public class ContactsController : ApiController
     {
-        private dividataEntities1 db = new dividataEntities1();
+        private dividataEntities db = new dividataEntities();
 
         // GET: api/Contacts
-        public IQueryable<Contact> GetContacts()
+        public IQueryable<Contacts> GetContacts()
         {
             return db.Contacts;
         }
 
         // GET: api/Contacts/5
-        [ResponseType(typeof(Contact))]
+        [ResponseType(typeof(Contacts))]
         public IHttpActionResult GetContact(int id)
         {
-            Contact contact = db.Contacts.Find(id);
+            Contacts contact = db.Contacts.Find(id);
             if (contact == null)
             {
                 return NotFound();
@@ -37,7 +33,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Contacts/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutContact(int id, Contact contact)
+        public IHttpActionResult PutContact(int id, Contacts contact)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +67,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Contacts
-        [ResponseType(typeof(Contact))]
-        public IHttpActionResult PostContact(Contact contact)
+        [ResponseType(typeof(Contacts))]
+        public IHttpActionResult PostContact(Contacts contact)
         {
             if (!ModelState.IsValid)
             {
@@ -86,10 +82,10 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/Contacts/5
-        [ResponseType(typeof(Contact))]
+        [ResponseType(typeof(Contacts))]
         public IHttpActionResult DeleteContact(int id)
         {
-            Contact contact = db.Contacts.Find(id);
+            Contacts contact = db.Contacts.Find(id);
             if (contact == null)
             {
                 return NotFound();

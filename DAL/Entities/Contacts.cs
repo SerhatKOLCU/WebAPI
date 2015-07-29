@@ -12,14 +12,10 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier
+    public partial class Contacts
     {
-        public Supplier()
-        {
-            this.Products = new HashSet<Product>();
-        }
-    
-        public int SupplierID { get; set; }
+        public int ContactID { get; set; }
+        public string ContactType { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }
@@ -29,9 +25,10 @@ namespace DAL.Entities
         public string PostalCode { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
+        public string Extension { get; set; }
         public string Fax { get; set; }
         public string HomePage { get; set; }
-    
-        public virtual ICollection<Product> Products { get; set; }
+        public string PhotoPath { get; set; }
+        public byte[] Photo { get; set; }
     }
 }

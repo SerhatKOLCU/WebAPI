@@ -12,18 +12,15 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Order_Details
     {
-        public Category()
-        {
-            this.Products = new HashSet<Product>();
-        }
+        public int OrderID { get; set; }
+        public int ProductID { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short Quantity { get; set; }
+        public float Discount { get; set; }
     
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
-        public string Description { get; set; }
-        public byte[] Picture { get; set; }
-    
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual Orders Orders { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

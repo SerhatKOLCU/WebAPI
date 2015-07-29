@@ -12,11 +12,12 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Territory
+    public partial class Territories
     {
-        public Territory()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Territories()
         {
-            this.Employees = new HashSet<Employee>();
+            this.Employees = new HashSet<Employees>();
         }
     
         public string TerritoryID { get; set; }
@@ -24,6 +25,7 @@ namespace DAL.Entities
         public int RegionID { get; set; }
     
         public virtual Region Region { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employees> Employees { get; set; }
     }
 }

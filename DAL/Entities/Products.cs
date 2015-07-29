@@ -12,11 +12,12 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Products
     {
-        public Product()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Products()
         {
-            this.Order_Details = new HashSet<Order_Detail>();
+            this.Order_Details = new HashSet<Order_Details>();
         }
     
         public int ProductID { get; set; }
@@ -30,8 +31,9 @@ namespace DAL.Entities
         public Nullable<short> ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
     
-        public virtual Category Category { get; set; }
-        public virtual ICollection<Order_Detail> Order_Details { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual Categories Categories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Details> Order_Details { get; set; }
+        public virtual Suppliers Suppliers { get; set; }
     }
 }

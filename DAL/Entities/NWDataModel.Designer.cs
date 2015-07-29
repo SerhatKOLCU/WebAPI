@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\SeRo\Documents\Visual Studio 2013\Projects\WebAPI2\BackEndWebAPI\DAL\Entities\EntityModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Valermus\Source\Repos\WebAPI\DAL\Entities\NWDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
