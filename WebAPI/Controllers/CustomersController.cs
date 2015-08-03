@@ -1,21 +1,45 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Net;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DAL.Entities;
+using WebAPI.DTOs;
+using System.Net;
+using System.Net.Http;
+using System.Data.Entity.Infrastructure;
+
 
 namespace WebAPI.Controllers
 {
     public class CustomersController : ApiController
     {
         private dividataEntities db = new dividataEntities();
-
-        // GET: api/Customers
-        public IQueryable<Customers> GetCustomers()
+        private static readonly Expression<Func<Customers,CustomerDTO>> ascustomer=
+            x=>new CustomerDTO{
+            CompanyName=x.CompanyName,
+            Address=x.Address,
+            City=x.City            
+        };
+       //  GET: api/Customers
+        //public IQueryable<Customers> GetCustomers()
+        //{
+        //    db.Configuration.ProxyCreationEnabled = false;//tablolar arası ilişkiyi parçalamak için
+        //    return db.Customers;
+        //}
+        public IQueryable<CustomerDTO> GetCustomers()
         {
-            return db.Customers;
+           // db.Configuration.ProxyCreationEnabled = false;//tablolar arası ilişkiyi parçalamak için
+            return db.Customers.Include(b => b.Orders).Select(ascustomer);
+        }
+
+        public IQueryable<Customers> GetPersonsByCarId(int Id)
+        {
+            IQueryable<Customers> Persons = db.Customers.Include(p => p.Orders.Where(c => c.OrderID == Id)
+            .Select(c => c.OrderID));
+            return Persons;
         }
 
         // GET: api/Customers/5
@@ -30,6 +54,18 @@ namespace WebAPI.Controllers
 
             return Ok(customer);
         }
+        //[ResponseType(typeof(string))]
+        //public string GetCustomer(string id)
+        //{
+        //    Customers customer = db.Customers.Find(id);
+        //    if (customer == null)
+        //    {
+        //        return "bulunamadııı";
+        //    }
+
+        //    return "bulundu mevcut";
+        //    //return Ok(customer);
+        //}
 
         // PUT: api/Customers/5
         [ResponseType(typeof(void))]

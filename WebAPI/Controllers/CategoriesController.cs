@@ -16,6 +16,7 @@ namespace WebAPI.Controllers
         // GET: api/Categories
         public IQueryable<DAL.Entities.Categories> GetCategories()
         {
+            db.Configuration.ProxyCreationEnabled = false;
             return db.Categories;
         }
 
