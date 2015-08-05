@@ -13,25 +13,25 @@ using System.Data.Entity.Infrastructure;
 
 namespace WebAPI.Controllers
 {
-     [RoutePrefix("api/Orders")]
+    // [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
         private dividataEntities db = new dividataEntities();
-        private static readonly Expression<Func<Orders, OrdersDTO>> orders = x => new OrdersDTO
-        {
-            EmployeeID=x.EmployeeID,
-            OrderDate=x.OrderDate,
-            CompanyName=x.Customers.CompanyName,
-            Address=x.Customers.Address,
-            CustomerID=x.Customers.CustomerID,
-            OrderID=x.OrderID,
-            ShipName=x.ShipName,
-            Title=x.Employees.Title
-        };
 
-       //GET: api/Orders
-        public IQueryable<OrdersDTO> GetOrders()
+        //GET: api/Orders
+        public IQueryable<OrderDTO> GetOrders()
         {
+            Expression<Func<Orders, OrderDTO>> orders = x => new OrderDTO
+        {
+            EmployeeID = x.EmployeeID,
+            OrderDate = x.OrderDate,
+            CompanyName = x.Customers.CompanyName,
+            CustomerAddress = x.Customers.Address,
+            CustomerID = x.Customers.CustomerID,
+            OrderID = x.OrderID,
+            ShipName = x.ShipName,
+            EmployeeTitle = x.Employees.Title
+        };
             return db.Orders.Include(b => b.Customers).Select(orders);
         }
 
@@ -43,30 +43,42 @@ namespace WebAPI.Controllers
 
         // GET: api/Orders/5
         [Route("{customerid}")]
-        public IQueryable<OrdersDTO> GetOrdersByCustomerId(string customerid)
+        public IQueryable<OrderDTO> GetOrdersByCustomerId(string customerid)
         {
+            Expression<Func<Orders, OrderDTO>> orders = x => new OrderDTO
+            {
+                EmployeeID = x.EmployeeID,
+                OrderDate = x.OrderDate,
+                CompanyName = x.Customers.CompanyName,
+                CustomerAddress = x.Customers.Address,
+                CustomerID = x.Customers.CustomerID,
+                OrderID = x.OrderID,
+                ShipName = x.ShipName,
+                EmployeeTitle = x.Employees.Title
+            };
             return db.Orders.Include(b => b.Customers)
                 .Where(b => b.Customers.CustomerID.Equals(customerid, StringComparison.OrdinalIgnoreCase))
                 .Select(orders);
         }
 
-        //[Route("{id:int}")]
-        //[ResponseType(typeof(OrdersDTO))]
-        //public IQueryable<OrdersDTO> GetOrdersByEmployeId(int id)
-        //{
-        //    return db.Orders.Include(b => b.Customers)
-        //        .Where(b => b.EmployeeID == id)
-        //        .Select(orders);
-        //}
-
-
         [Route("{id:int}")]
         [ResponseType(typeof(Orders))]
-        public IQueryable<OrdersDTO> GetOrdersByOrderID(int id)
+        public IQueryable<OrderDTO> GetOrdersByOrderID(int id)
         {
-             return db.Orders.Include(b => b.Customers)
-               .Where(b => b.OrderID == id)
-                 .Select(orders);
+            Expression<Func<Orders, OrderDTO>> orders = x => new OrderDTO
+            {
+                EmployeeID = x.EmployeeID,
+                OrderDate = x.OrderDate,
+                CompanyName = x.Customers.CompanyName,
+                CustomerAddress = x.Customers.Address,
+                CustomerID = x.Customers.CustomerID,
+                OrderID = x.OrderID,
+                ShipName = x.ShipName,
+                EmployeeTitle = x.Employees.Title
+            };
+            return db.Orders.Include(b => b.Customers)
+              .Where(b => b.OrderID == id)
+                .Select(orders);
         }
 
 
@@ -91,7 +103,7 @@ namespace WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 return BadRequest(ModelState);
             }
 

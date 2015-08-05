@@ -13,6 +13,7 @@ namespace WebAPI.Controllers
         private dividataEntities db = new dividataEntities();
 
         // GET: api/Contacts
+        [ResponseType(typeof(Contacts))]
         public IQueryable<Contacts> GetContacts()
         {
             return db.Contacts;
@@ -63,7 +64,8 @@ namespace WebAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+           // return StatusCode(HttpStatusCode.NoContent);
+            return Ok(contact);
         }
 
         // POST: api/Contacts
